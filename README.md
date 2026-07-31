@@ -30,7 +30,7 @@ cd Gas-Flux-App
 ```
 
 **3. Install dependencies** (run this from inside the `Gas-Flux-App` folder -
-`uv` needs to find `requirements.txt` in the current directory):
+`uv` needs to find `pyproject.toml` in the current directory):
 
 ```bash
 uv sync

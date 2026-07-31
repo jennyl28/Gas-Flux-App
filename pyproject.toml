@@ -5,7 +5,7 @@ description = "Software for the data analysis of large gas network data for AQAM
 readme = "README.md"
 requires-python = ">=3.13"
 dependencies = [
-    "numpy>=2.5.1",
+    "numpy>=2.2",
     "openpyxl>=3.1.5",
     "pandas>=2.2.3",
     "plotly>=6.9.0",

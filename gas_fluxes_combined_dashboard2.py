@@ -1,13 +1,19 @@
 import streamlit as st 
 
-import gas_fluxes_dashboard4_0
-import gas_fluxes_dashboard4_1
-import gas_fluxes_dashboard5_0
-import gas_fluxes_dashboardcategory
-import gas_fluxes_dashboard7_0
+try:
+  import gas_fluxes_dashboard4_0
+  import gas_fluxes_dashboard4_1
+  import gas_fluxes_dashboard5_0
+  import gas_fluxes_dashboardcategory
+  import gas_fluxes_dashboard7_0
+except ImportError as e:
+  st.error(f"Module import error: {e}")
+  st.stop()
 
-
-st.set_page_config(layout="wide")
+def main():
+  st.set_page_config(layout="wide")
+if _name_ == "_Gas Fluxes Analysis Dashboard_":
+  main()
 st.title("Gas Fluxes Analysis Dashboard")
 
 st.sidebar.title("Select Dashboard")

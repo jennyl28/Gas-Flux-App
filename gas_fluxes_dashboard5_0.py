@@ -120,7 +120,7 @@ def create_pdf(fig, title):
         Paragraph(title, styles["Title"]),
         Spacer(1, 20)
     ]
-    with open(tmp.name, "rb" as f:
+    with open(tmp.name, "rb") as f:
         pdf= f.read()
     return pdf
 

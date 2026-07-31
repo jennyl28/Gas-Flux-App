@@ -34,7 +34,7 @@ def clean_detection_limits(value):
 def convert_numeric(df):
     return df.map(clean_detection_limits)
     for col in df.columns:
-        df[col] = pd.to_numeric(df[col], errors="ignore")
+        df[col] = pd.to_numeric(df[col], errors="coerce")
     return df
 
 

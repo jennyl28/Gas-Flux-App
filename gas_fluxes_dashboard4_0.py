@@ -3,6 +3,7 @@ import pandas as pd
 import numpy as np
 import plotly.graph_objects as go
 import tempfile
+import io
 from reportlab.platypus import SimpleDocTemplate, Image, Spacer, Paragraph
 from reportlab.lib.pagesizes import A4
 from reportlab.lib.styles import getSampleStyleSheet
@@ -111,6 +112,8 @@ def process_table(df, site):
 
 def create_pdf(fig, title):
     tmp = tempfile.NamedTemporaryFile(delete=False, suffix=".pdf")
+    img_bytes = fig.to_image(format="png")
+    img_buffer = io.BytesIO(img_bytes)
     doc = SimpleDocTemplate(tmp.name)
     styles = getSampleStyleSheet()
 
@@ -118,6 +121,9 @@ def create_pdf(fig, title):
         Paragraph(title, styles["Title"]),
         Spacer(1, 20)
     ]
+    with open(tmp.name, "rb") as f:
+        pdf = f.read()
+    return pdf
 
     try:
         img = tempfile.NamedTemporaryFile(delete=False, suffix=".png")
@@ -253,7 +259,7 @@ def run():
 
         # -------- Export --------
         if st.button("Export PDF"):
-            pdf_path = create_pdf(fig, title)
+            pdf_path = (fig, title)
             with open(pdf_path, "rb") as f:
                 st.download_button("Download PDF", f)
 

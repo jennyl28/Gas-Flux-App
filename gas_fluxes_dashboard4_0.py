@@ -31,7 +31,10 @@ def clean_detection_limits(value):
 
 
 def convert_numeric(df):
-    return df.map(clean_detection_limits).apply(pd.to_numeric, errors="ignore")
+    df.map(clean_detection_limits)
+    for col in df.columns:
+        df[col] = pd.to_numeric(df[col], errors="ignore")
+    return df
 
 
 def extract_tables(file):

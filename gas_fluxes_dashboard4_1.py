@@ -39,7 +39,7 @@ def convert_numeric(df):
 
 
 def extract_tables(file):
-    content = file.read().decode("utf-8", errors="ignore")
+    content = file.read().decode("utf-8", errors="coerce")
     lines = content.splitlines()
 
     tables = []

@@ -31,7 +31,6 @@ def clean_detection_limits(value):
 
 
 def convert_numeric(df):
-    st.write(f"DataFrame type: {type(df)}")
     st.write(df.head() if hasattr(df, "head") else df)
     return df.map(clean_detection_limits).apply(pd.to_numeric, errors="coerce")
 

@@ -15,8 +15,8 @@ def clean_columns(df):
     df.columns = (
         df.columns.astype(str)
         .str.strip()
-        .str.replace("\n", "")
-        .str.replace(" ", "")
+        .str.replace("\n", "", regex=False)
+        .str.replace(" ", "", regex=False)
     )
     return df
 

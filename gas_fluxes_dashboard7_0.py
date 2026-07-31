@@ -33,13 +33,13 @@ def clean_detection_limits(value):
 def convert_numeric(df):
     st.write(type(df))
     st.write(df.head() if hasattr(df, "head") else df)
-    return df.map(clean_detection_limits).apply(pd.to_numeric, errors="ignore")
+    return df.map(clean_detection_limits).apply(pd.to_numeric, errors="coerce")
 
 
 # ---------------- EXTRACTION ----------------
 
 def extract_tables(file):
-    content = file.read().decode("utf-8", errors="ignore")
+    content = file.read().decode("utf-8", errors="coerce")
     lines = content.splitlines()
 
     tables = []

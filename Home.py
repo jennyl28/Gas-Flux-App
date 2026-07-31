@@ -12,7 +12,7 @@ except ImportError as e:
 
 def main():
   st.set_page_config(layout="wide")
-if _name_ == "_Gas Fluxes Analysis Dashboard_":
+if __name__ == "__Gas Fluxes Analysis Dashboard__":
   main()
 st.title("Gas Fluxes Analysis Dashboard")
 
